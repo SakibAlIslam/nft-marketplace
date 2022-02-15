@@ -16,4 +16,14 @@ contract NFT is ERC721URIStorage {
 
     //OBJ: give the MFT market the ability to transact with tokens or change ownership
     // setApprovalForAll allows us to do that with contract address
+
+    //constructor for set up our address
+    constructor(address marketplaceAddress) ERC721('KryptoBirdz', 'KBIRDZ') {
+        contractAddress = marketplaceAddress;
+    }
+
+    function mintToken(string memory tokenURI) public returns(uint) {
+        
+    }
+
 }
