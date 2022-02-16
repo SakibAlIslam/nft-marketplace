@@ -64,5 +64,17 @@ contract KBMarket is ReentrancyGuard {
     function getListingPrice() public view returns (uint256) {
         return listingPrice;
     }
-    
+
+    // two functions to interact with the contract
+    // create a market item to put it up for sale
+    // create a market sale for buying and selling between parties
+
+    function mintMarketItem(
+        address nftContract,
+        uint tokenId,
+        uint price
+    )
+    public payable nonReentrant {
+        // non reentrant is a modifier to prevent reentry attack of multiple request
+    }
 }
