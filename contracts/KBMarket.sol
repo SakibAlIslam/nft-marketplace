@@ -32,4 +32,16 @@ contract KBMarket is ReentrancyGuard {
         //set the owner
         owner = payable(msg.sender);
     }
+
+    // structs can act like objects
+
+    struct TokenItem {
+        uint itemId;
+        address nftContract;
+        uint256 tokenId;
+        address payable seller;
+        address payable owner;
+        uint256 price;
+        bool sold;
+    }
 }
