@@ -59,4 +59,10 @@ contract KBMarket is ReentrancyGuard {
         uint256 price,
         bool sold
     );
+
+    // get the listing price 
+    function getListingPrice() public view returns (uint256) {
+        return listingPrice;
+    }
+    
 }
