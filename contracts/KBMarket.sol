@@ -47,7 +47,7 @@ contract KBMarket is ReentrancyGuard {
 
     //tokenId return which marketToken - fetch which one it is
 
-    mapping(uint256 => MarketToken) private idToTokenItem;
+    mapping(uint256 => MarketToken) private idToMarketToken;
 
     // listen to events from the client
     event MarketTokenMinted(
@@ -76,5 +76,21 @@ contract KBMarket is ReentrancyGuard {
     )
     public payable nonReentrant {
         // non reentrant is a modifier to prevent reentry attack of multiple request
+        require(price > 0, 'Price must be greater than zero');
+        require(msg.value == listingPrice, 'Price must be equal to listingPrice');
+
+        _tokenIds.increment();
+        uint itemId = _tokenIds.current();
+
+        //putting it up for sale - bool - no owner
+        idToMarketToken[itemId] = MarketToken(
+        itemId,
+        nftContract,
+        tokenId,
+        payable(msg.sender),
+        payable(address(0)),
+        price,
+        false
+        );
     }
 }
