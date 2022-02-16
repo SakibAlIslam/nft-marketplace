@@ -96,6 +96,14 @@ contract KBMarket is ReentrancyGuard {
         //NFT transaction
         IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
 
-        
+        emit MarketTokenMinted(
+        itemId,
+        nftContract,
+        tokenId,
+        msg.sender,
+        address(0),
+        price,
+        false
+    );
     }
 }
