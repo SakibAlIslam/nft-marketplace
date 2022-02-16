@@ -22,5 +22,14 @@ contract KBMarket is ReentrancyGuard {
 
     //determine who is the owner of the contract
     //charge a listing fee so the owner makes a commission
-    
+    address payable owner;
+    //we are deploying to matic the API is same so you can use ether the same as matic
+    // they both have 18 decimal
+    // 0.045 is the cents
+    uint256 listingPrice = 0.045 ether;
+
+    constructor () {
+        //set the owner
+        owner = payable(msg.sender);
+    }
 }
