@@ -139,10 +139,10 @@ contract KBMarket is ReentrancyGuard {
 
     function fetchMarketTokens() public view returns(MarketToken[] memory) {
         uint itemCount = _tokenIds.current();
-        uint unSoldItemCount = _tokenIds.current() - _tokensSold.current();
+        uint unsoldItemCount = _tokenIds.current() - _tokensSold.current();
         uint currentIndex = 0;
 
         //looping over the number of items created (if number has not been sold populate the array)
-
+        MarketToken[] memory items = new MarketToken[](unsoldItemCount);
     }
 }
