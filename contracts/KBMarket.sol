@@ -133,4 +133,16 @@ contract KBMarket is ReentrancyGuard {
 
         payable(owner).transfer(listingPrice);
     }
+
+    //functions to fetchMarketItems - minting, buyings and sellings
+    // return the number of sold items
+
+    function fetchMarketTokens() public view returns(MarketToken[] memory) {
+        uint itemCount = _tokenIds.current();
+        uint unSoldItemCount = _tokenIds.current() - _tokensSold.current();
+        uint currentIndex = 0;
+
+        //looping over the number of items created (if number has not been sold populate the array)
+
+    }
 }
